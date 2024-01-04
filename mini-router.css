@@ -1,0 +1,37 @@
+.page {
+    position:absolute;
+    width :100%;
+    height:100%;
+    left:0;
+    top:0;
+    transform:translateX(-102vh);
+    background-color:var(--N900);
+}
+
+.page[data-state="visible"] {
+    animation:show 200ms ease-out forwards;
+    z-index:50;
+}
+
+.page[data-state="hidden"]{
+    animation:hide 200ms ease-out forwards;
+    z-index:40;
+}
+
+@keyframes show {
+    from {transform:translateX(100%);}
+    to{transform:translateX(0vh);}
+}
+
+@keyframes hide {
+    from {
+        opacity:1;
+        transform:translateX(0);
+        pointer-events:all;
+    }
+    to{
+        opacity:0;
+        transform:translateX(-25%);
+        pointer-events:none;
+     }
+}
